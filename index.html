@@ -1,0 +1,205 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anurag Kumar | Portfolio</title>
+    <style>
+        /* Advanced Minimalist Dark Theme */
+        :root {
+            --bg-color: #0a0a0a; /* Slightly lighter than pure black for depth */
+            --card-bg: #111111;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --hover-border-color: rgba(255, 255, 255, 0.2);
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --shadow-normal: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.8);
+            --transition-speed: 0.4s;
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+            /* Added a subtle radial gradient for visual depth */
+            background: radial-gradient(circle at top, #151515 0%, var(--bg-color) 100%);
+            color: var(--text-main); 
+            padding: 4vw; 
+            min-height: 100vh;
+        }
+
+        /* Main Heading at Top */
+        .header {
+            text-align: center;
+            margin-bottom: 5rem; /* Increased spacing below header */
+            padding-top: 2rem;
+        }
+
+        .header h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffffff 0%, #666666 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Advanced Bento Grid layout */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem; /* INCREASED SPACING BETWEEN VIDEOS */
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Base Video Container with Hover Effects */
+        .video-container {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02), var(--shadow-normal);
+            /* Smooth transitions for all changing properties */
+            transition: transform var(--transition-speed) cubic-bezier(0.25, 1, 0.5, 1),
+                        box-shadow var(--transition-speed) ease,
+                        border-color var(--transition-speed) ease;
+        }
+
+        /* UI/UX: The Hover Effect */
+        .video-container:hover {
+            transform: translateY(-8px) scale(1.01); /* Lifts up and slightly enlarges */
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), var(--shadow-hover);
+            border-color: var(--hover-border-color);
+            z-index: 2; /* Brings hovered video to the front */
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 19px;
+            background-color: #000; /* Fallback color before video loads */
+        }
+
+        /* Video Controls Customization (Chrome/Safari) - Hides download/fullscreen initially to keep UI clean */
+        video::-webkit-media-controls-enclosure {
+            border-radius: 0 0 19px 19px;
+        }
+
+        /* 16:9 Widescreen Format */
+        .format-16-9 {
+            grid-column: span 2;
+            aspect-ratio: 16 / 9;
+        }
+
+        /* 9:16 Vertical Format (Reels/Shorts) */
+        .format-9-16 {
+            grid-column: span 1;
+            grid-row: span 2;
+            aspect-ratio: 9 / 16;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .bento-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+            .format-16-9 { grid-column: span 3; }
+            .format-9-16 { grid-column: span 1; grid-row: span 1; }
+        }
+
+        @media (max-width: 768px) {
+            .bento-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .format-16-9, .format-9-16 { 
+                grid-column: span 1; 
+                grid-row: span 1; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Selected Works</h1>
+        <p>Cinematic & Vertical Cuts</p>
+    </header>
+
+    <main class="bento-grid">
+        
+        <div class="video-container format-16-9">
+            <video controls preload="metadata" controlsList="nodownload" oncontextmenu="return false;" poster="">
+                <source src=" https://res.cloudinary.com/dlcxbjxct/video/upload/v1774861679/Anurag_Edit_ocojuc.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-container format-9-16">
+            <video controls preload="metadata" controlsList="nodownload" oncontextmenu="return false;" poster="">
+                <source src=" https://res.cloudinary.com/dlcxbjxct/video/upload/v1774864436/Anurag_k_etndsn.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-container format-9-16">
+            <video controls preload="metadata" controlsList="nodownload" oncontextmenu="return false;" poster="">
+                <source src=" https://res.cloudinary.com/dlcxbjxct/video/upload/v1774857853/Anurag_copy_trwnxe.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-container format-16-9">
+            <video controls preload="metadata" controlsList="nodownload" oncontextmenu="return false;" poster="">
+                <source src="https://res.cloudinary.com/dlcxbjxct/video/upload/v1774861799/Anurag_editz_gtz0hd.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-container format-9-16">
+            <video controls preload="metadata" controlsList="nodownload" oncontextmenu="return false;" poster="">
+                <source src="https://res.cloudinary.com/dlcxbjxct/video/upload/v1774864666/gj_pykhg1.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-container format-9-16">
+            <video controls preload="metadata" controlsList="nodownload" oncontextmenu="return false;" poster="">
+                <source src="https://res.cloudinary.com/dlcxbjxct/video/upload/v1774857862/Anurag_copy_2_wgll85.mp4" type="video/mp4">
+            </video>
+        </div>
+   
+        <div class="video-container format-16-9">
+            <video controls preload="metadata" controlsList="nodownload" oncontextmenu="return false;" poster="">
+                <source src="https://res.cloudinary.com/dlcxbjxct/video/upload/v1774864989/Ak_editz_oss3io.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-container format-16-9">
+            <video controls preload="metadata" controlsList="nodownload" oncontextmenu="return false;" poster="">
+                <source src="" type="video/mp4">
+            </video>
+        </div>
+<div class="video-container format-9-16">
+            <video controls preload="metadata" controlsList="nodownload" oncontextmenu="return false;" poster="">
+                <source src=" https://res.cloudinary.com/dlcxbjxct/video/upload/v1774861746/anurag_erwko4.mp4" type="video/mp4">
+            </video>
+        </div>
+
+<div class="video-container format-9-16">
+            <video controls preload="metadata" controlsList="nodownload" oncontextmenu="return false;" poster="">
+                <source src=" https://res.cloudinary.com/dlcxbjxct/video/upload/v1774858858/Untitled_dkt1cq.mp4" type="video/mp4">
+            </video>
+        </div>
+    </main>
+
+</body>
+</html>
